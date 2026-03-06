@@ -1,0 +1,19 @@
+.cards-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+  display: grid;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.card a {
+  color: #06f;
+  font-weight: bold;
+  text-decoration: none;
+}
+/*# sourceMappingURL=Orchard frontend test.8d293904.css.map */

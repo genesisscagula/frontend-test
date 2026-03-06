@@ -1,0 +1,68 @@
+.gallery-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  display: grid;
+}
+
+.gallery-img {
+  cursor: pointer;
+  border-radius: 6px;
+  width: 100%;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px #0003;
+}
+
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  background: #000000bf;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: opacity .35s, visibility .35s;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal img {
+  opacity: 0;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90%;
+  transition: transform .35s, opacity .35s;
+  transform: scale(.85);
+}
+
+.modal.open img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal-close {
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 36px;
+  transition: transform .2s;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.modal-close:hover {
+  transform: rotate(90deg);
+}
+/*# sourceMappingURL=Orchard frontend test.735b92e5.css.map */

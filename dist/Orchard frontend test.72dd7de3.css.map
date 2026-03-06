@@ -1,0 +1,1 @@
+{"mappings":"AAAA;;;;;;AAMA","sources":["src/styles/layout.css"],"sourcesContent":["main{\r\n\tmax-width:1200px;\r\n\tmargin:auto;\r\n\tpadding:40px 20px;\r\n}\r\n\r\nsection{\r\n\tmargin-bottom:60px;\r\n}"],"names":[],"version":3,"file":"Orchard frontend test.72dd7de3.css.map","sourceRoot":"/__parcel_source_root/"}
