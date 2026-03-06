@@ -1,276 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Interface Development Test" />
-  <title>Interface Development Test</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cooking Section</title>
 
-  <style>
-    /* ===== Base ===== */
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background: #f8f8f8;
-      color: #222;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
-    h1, h2, h3 { margin: 0 0 16px; }
-
-    section {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    /* ===== Gallery ===== */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      display: block;
-      cursor: pointer;
-      border-radius: 6px;
-    }
-
-    /* ===== Cards ===== */
-    .card-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-
-    .card a {
-      display: inline-block;
-      margin-top: 12px;
-      color: #0077cc;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .card a:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== Modal ===== */
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .modal.active {
-      display: flex;
-    }
-
-    .modal-content {
-      position: relative;
-      max-width: 800px;
-      width: 100%;
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .modal-content img {
-      width: 100%;
-      display: block;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #000;
-      color: #fff;
-      border: none;
-      padding: 8px 12px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    /* ===== Responsive ===== */
-    @media (min-width: 768px) {
-      .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .card-list {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .card-list {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-  </style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <header>
-    <section>
-      <h1>Interface Development Test</h1>
-    </section>
-  </header>
+<section class="cooking-section">
 
-  <main>
+    <div class="container">
 
-    <!-- ===== Gallery Block ===== -->
-    <section aria-labelledby="gallery-heading">
-      <h2 id="gallery-heading">Gallery</h2>
-      <div class="gallery-grid"></div>
-    </section>
+        <div class="grid gallery-grid">
 
-    <!-- ===== Cards Block ===== -->
-    <section aria-labelledby="cards-heading">
-      <h2 id="cards-heading">Cards</h2>
-      <div class="card-list"></div>
-    </section>
+            <!-- Large Image -->
 
-  </main>
+            <!-- Text Content -->
+           
 
-  <!-- ===== Modal ===== -->
-  <div class="modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close dialog">Close</button>
-      <img src="" alt="">
+        </div>
+
     </div>
-  </div>
 
+    <div class="container cards">
+        <h2>Taste the Colours</h2>
+        <div class="divider"></div>
+        <div class="grid2 card-list">
+            <!-- <div class="card">
+                <div class="image-box"><img src="./images/red.jpg" alt="Red"></div>
+                <h3>RED</h3>
+                <p>Red foods remind us of berries and soft fruits, so we anticipate a sweet taste.</p>
+            </div>
+            <div class="card">
+                <div class="image-box"><img src="./images/green.jpg" alt="Green"></div>
+                <h3>Green</h3>
+                <p>Fresh, zingy green colours are reminiscent of unripe fruit, promising sour or acid flavours.</p>
+            </div>
+            <div class="card">
+                <div class="image-box"><img src="./images/white.jpg" alt="White"></div>
+                <h3>White</h3>
+                <p>White foods evoke memories of salt and salty flavours, driving the expectation of a savoury treat.</p>
+            </div> -->
+        </div>
+    </div>
 
-  <script type="javascript" src="script.js"></script>
+    <!-- ===== Modal ===== -->
+    <div class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close dialog">x</button>
+            <img src="" alt="">
+        </div>
+    </div>
 
-  <script>
-    /* ===== CMS-Like Data ===== */
-    const pageData = {
-      gallery: [
-        {
-          thumbnail: "https://picsum.photos/400/300?1",
-          full: "https://picsum.photos/1000/700?1",
-          alt: "Workspace interior"
-        },
-        {
-          thumbnail: "https://picsum.photos/400/300?2",
-          full: "https://picsum.photos/1000/700?2",
-          alt: "Office desk"
-        },
-        {
-          thumbnail: "https://picsum.photos/400/300?3",
-          full: "https://picsum.photos/1000/700?3",
-          alt: "Modern building"
-        }
-      ],
-      cards: [
-        {
-          title: "Card One",
-          description: "This is a short description.",
-          url: "https://example.com",
-          newTab: true
-        },
-        {
-          title: "Card Two",
-          description: "Another short description.",
-          url: "https://google.com",
-          newTab: true
-        }
-      ]
-    };
-
-    /* ===== Gallery Logic ===== */
-    const galleryContainer = document.querySelector('.gallery-grid');
-    const modal = document.querySelector('.modal');
-    const modalImg = modal.querySelector('img');
-    const modalClose = document.querySelector('.modal-close');
-
-    pageData.gallery.forEach(item => {
-      const img = document.createElement('img');
-      img.src = item.thumbnail;
-      img.alt = item.alt;
-      img.loading = "lazy";
-      img.tabIndex = 0;
-
-      img.addEventListener('click', () => openModal(item));
-      img.addEventListener('keydown', e => {
-        if (e.key === "Enter") openModal(item);
-      });
-
-      galleryContainer.appendChild(img);
-    });
-
-    function openModal(item) {
-      modalImg.src = item.full;
-      modalImg.alt = item.alt;
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeModal() {
-      modal.classList.remove('active');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = "auto";
-    }
-
-    modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', e => {
-      if (e.target === modal) closeModal();
-    });
-
-    document.addEventListener('keydown', e => {
-      if (e.key === "Escape") closeModal();
-    });
-
-    /* ===== Cards Logic ===== */
-    const cardContainer = document.querySelector('.card-list');
-
-    pageData.cards.forEach(card => {
-      const article = document.createElement('article');
-      article.classList.add('card');
-
-      article.innerHTML = `
-        <h3>${card.title}</h3>
-        <p>${card.description}</p>
-        <a href="${card.url}"
-           ${card.newTab ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-           Learn More
-        </a>
-      `;
-
-      cardContainer.appendChild(article);
-    });
-
-    // Capture all link clicks
-    cardContainer.addEventListener('click', e => {
-      const anchor = e.target.closest('a');
-      if (anchor) {
-        console.log(anchor);
-      }
-    });
-  </script>
-
+</section>
+<script src="js/script.js"></script>
 </body>
 </html>
