@@ -1,3 +1,8 @@
+/* 
+  Central data source for the page.
+  This keeps all text, images, and card data in one place
+  so the UI can be rendered dynamically without hardcoding content in HTML.
+*/
 const pageData = {
   content: [{
       h2: "WHAT DOES COOKING MEAN?",
@@ -5,6 +10,11 @@ const pageData = {
       label: "THE PERFECT EGG",
       h3: "Keep water between 67 and 68°C for a flavourful, tender yolk"
   }],
+
+  /* 
+    Gallery image data used to render the image grid dynamically.
+    Each object contains the thumbnail (grid view) and full image (modal view).
+  */
   gallery: [
     {
       thumbnail: "./images/pot.jpg",
@@ -22,6 +32,11 @@ const pageData = {
       alt: "Gallery Image"
     }
   ],
+
+  /* 
+    Card data for the informational card section.
+    Each card includes an image, title, description, and link.
+  */
   cards: [
     {
       thumbnail: "./images/red.jpg",
@@ -47,25 +62,47 @@ const pageData = {
   ]
 };
 
+
 /* ===== Gallery Logic ===== */
+
+/*
+  Select key DOM elements needed for the gallery and modal functionality
+*/
 const galleryContainer = document.querySelector('.gallery-grid');
 const modal = document.querySelector('.modal');
 const modalImg = modal.querySelector('img');
 const modalClose = document.querySelector('.modal-close');
 
+
+/*
+  Dynamically render gallery images based on pageData.gallery
+*/
 pageData.gallery.forEach((item, index) => {
-  console.log(index);
+
   const div = document.createElement('div');
   div.className = 'img-'+index;
+
   const img = document.createElement('img');
   img.src = item.thumbnail;
   img.alt = item.alt;
+
+  // Lazy loading improves performance by loading images only when needed
   img.loading = "lazy";
+
+  // Allow keyboard accessibility
   img.tabIndex = 0;
 
   div.appendChild(img);
 
+  /*
+    Clicking an image opens the modal with the full image
+  */
   img.addEventListener('click', () => openModal(item));
+
+  /*
+    Keyboard accessibility:
+    pressing Enter while focused on the image also opens the modal
+  */
   img.addEventListener('keydown', e => {
     if (e.key === "Enter") openModal(item);
   });
@@ -73,7 +110,12 @@ pageData.gallery.forEach((item, index) => {
   galleryContainer.appendChild(div);
 });
 
+
+/*
+  Render text content section dynamically
+*/
 pageData.content.forEach(item => {
+
   const content = document.createElement('div');
   content.className = 'content';
 
@@ -94,58 +136,87 @@ pageData.content.forEach(item => {
   h3.textContent= item.h3;
   content.appendChild(h3)
 
-
   galleryContainer.appendChild(content);
 });
 
+
+/*
+  Opens the modal and displays the selected image
+*/
 function openModal(item) {
+
   modalImg.src = item.full;
   modalImg.alt = item.alt;
+
   modal.classList.add('active');
   modal.setAttribute('aria-hidden', 'false');
+
+  // Prevent page scrolling when modal is open
   document.body.style.overflow = "hidden";
 }
 
+
+/*
+  Closes the modal and restores page scroll
+*/
 function closeModal() {
-  console.log('test')
+
   modal.classList.remove('active');
   modal.setAttribute('aria-hidden', 'true');
+
   document.body.style.overflow = "auto";
 }
 
+
+/*
+  Close modal when clicking the close button
+*/
 modalClose.addEventListener('click', closeModal);
 
-// Close modal when clicking outside the modal content
+
+/*
+  Close modal when clicking outside the modal content
+*/
 modal.addEventListener('click', (e) => {
-  if (e.target === modal) {  // Only if background clicked
+  if (e.target === modal) {
     closeModal();
   }
 });
 
+
+/*
+  Accessibility: allow closing modal using Escape key
+*/
 document.addEventListener('keydown', e => {
   if (e.key === "Escape") closeModal();
 });
 
+
 /* ===== Cards Logic ===== */
+
+/*
+  Container for all cards
+*/
 const cardContainer = document.querySelector('.card-list');
 
+
+/*
+  Dynamically render cards from pageData.cards
+*/
 pageData.cards.forEach(card => {
+
   const article = document.createElement('article');
   article.classList.add('card');
 
-  article.innerHTML = `
-    <h3>${card.title}</h3>
-    <p>${card.description}</p>
-    <a href="${card.url}"
-       ${card.newTab ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-       Learn More
-    </a>
-  `;
-
+  /*
+    Card layout includes image, title, description and link
+  */
   article.innerHTML = `
      <a href="${card.url}"
        ${card.newTab ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-        <div class="image-box"><img src="${card.thumbnail}" alt="Red"></div>
+        <div class="image-box">
+          <img src="${card.thumbnail}" alt="${card.title}">
+        </div>
         <h3>${card.title}</h3>
         <p>${card.description}</p>
     </a>
@@ -154,10 +225,17 @@ pageData.cards.forEach(card => {
   cardContainer.appendChild(article);
 });
 
-// Capture all link clicks
+
+/*
+  Event delegation for card links
+  Captures link clicks for analytics or debugging
+*/
 cardContainer.addEventListener('click', e => {
+
   const anchor = e.target.closest('a');
+
   if (anchor) {
     console.log(anchor);
   }
+
 });
