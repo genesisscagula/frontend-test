@@ -42,5 +42,9 @@ git clone https://github.com/genesisscagula/frontend-test.git
 
 3. Open `docs/index.html` in your browser
 
+## Live Demo
+
+https://genesisscagula.github.io/frontend-test/
+
 
 The implementation focuses on closely following the provided design while keeping the code simple, readable, and maintainable.
